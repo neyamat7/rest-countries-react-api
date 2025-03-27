@@ -10,7 +10,7 @@ const Country = ({ country, onVisitedCountries }) => {
 
   if (country.name.common !== "Israel") {
     return (
-      <div className={`border rounded-md p-3 ${visited ? "bg-gray-200" : ""}`}>
+      <div className={`border rounded-md p-3 h-fit ${visited ? "bg-gray-200" : ""}`}>
         <div className="w-full h-36">
           <img className="w-full h-full" src={country.flags.png} alt="" />
         </div>

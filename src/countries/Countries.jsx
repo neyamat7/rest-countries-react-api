@@ -38,12 +38,13 @@ const Countries = ({ countries }) => {
   });
 
   return (
-    <div className="max-w-screen-xl mx-auto px-5">
+    <div className="max-w-[1200px] mx-auto px-5">
       <h1 className="text-red-500 text-4xl font-medium my-6">
         Travelling Countries: {countriesData.length}
       </h1>
+
       {/* search input */}
-      <div>
+      <div className="mb-5">
         <label className="font-medium" htmlFor="search">
           Search Country:
         </label>
@@ -56,17 +57,35 @@ const Countries = ({ countries }) => {
           id="search"
         />
       </div>
-      <h1 className="text-xl">Traveled so far: {visitedCountries.length}</h1>
-      <ol className="my-6 text-slate-700 text-2xl">
-        {visitedCountries.map((country) => (
-          <li key={country.name.common} className="text-base">
-            {country.name.common}
-          </li>
-        ))}
-      </ol>
 
-      {/* pass all countries data as props */}
-      <div className="grid grid-cols-3 gap-5">{countryData}</div>
+      <div className="flex gap-5 h-fit">
+        {/* pass all countries data as props */}
+        <div
+          className={`left grid  gap-5  overflow-y-auto ${
+            visitedCountries.length > 0
+              ? "grid-cols-3 basis-10/12"
+              : "grid-cols-4"
+          }`}
+        >
+          {countryData}
+        </div>
+        <div
+          className={`${
+            visitedCountries.length > 0 ? "block" : "hidden"
+          } sticky top-5 h-fit`}
+        >
+          <h1 className="text-xl">
+            Traveled so far: {visitedCountries.length}
+          </h1>
+          <ol className="my-4 text-slate-700 text-lg">
+            {visitedCountries.map((country) => (
+              <li key={country.name.common} className="">
+                {country.name.common}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
     </div>
   );
 };
