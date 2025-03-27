@@ -33,6 +33,7 @@ const Countries = ({ countries }) => {
         key={singleCountry.name.common}
         country={singleCountry}
         onVisitedCountries={handleVisitedCountries}
+        visitedCountries={visitedCountries}
       ></Country>
     );
   });
